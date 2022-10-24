@@ -5,13 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/tailwind.css" />
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <title>Basanta Rai</title>
     </head>
 
     <body>
         <div class="antialiased">
             <div class="max-w-5xl px-6 mx-auto md:px-8">
-                <div>
+                <div x-data="{ isOpen: false}">
                     <div class="flex items-center justify-between mt-10">
                         <h1
                             class="text-lg font-medium leading-none text-gray-900 sm:text-xl md:text-2xl lg:text-3xl md:font-normal">
@@ -19,14 +20,14 @@
                         </h1>
 
                         <div class="block lg:hidden">
-                            <button type="button" class="focus:outline-none">
+                            <button :class="isOpen ? 'hidden' : 'show' "x-on:click="isOpen = true" type="button" class="focus:outline-none">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M2 6H22V7H2V6ZM2 12H22V13H2V12ZM22 18H2V19H22V18Z" class="text-gray-900 fill-current"></path>
                                 </svg>
 
                             </button>
 
-                            <button type="button" class="focus:outline-none">
+                            <button :class="isOpen ? 'show' : 'hidden' " x-on:click="isOpen = false" type="button" class="focus:outline-none">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M4 4L20 20M20 4L4 20" class="" stroke="#1A202C"></path>
                                 </svg>
@@ -34,7 +35,7 @@
                         </div>
                     </div>
 
-                    <div class="lg:block">
+                    <div :class="isOpen ? 'show' : 'hidden ' " class="lg:block">
                         <div class="block w-full mt-10 font-medium text-gray-700 lg:flex lg:justify-between lg:border-b lg:border-gray-400 lg:text-lg">
                             <div class="-mb-px lg:flex">
                                 <a href="#"
@@ -84,21 +85,17 @@
                         <span class="pb-px text-gray-900 border-b border-gray-900 md:pb-1">Bsc.CSIT</span>
                         student from Nepal.
                     </p>
-
-                    <p class="mt-6 sm:mt-8 md:mt-10">
-                        I love linux and i use it as my daily driver.
-                    </p>
-
                     <p class="mt-6 sm:mt-8 md:mt-10">
                         I’m interested in  
-                        <span class="pb-px text-gray-900 md:pb-1">web design</span>
+                        <span class="pb-px text-gray-900 border-b border-gray-900 md:pb-1">web design</span>
                         and
-                        <span class="pb-px text-gray-900 md:pb-1">development</span>.
+                        <span class="pb-px text-gray-900 border-b border-gray-900 md:pb-1">development</span>.
                         Right now I'm learning javascript and exploring Laravel.
                     </p>
 
                     <p class="mt-6 sm:mt-8 md:mt-10">
                         Other than web thing, I love playing guitar and learn new things.
+                        I love linux and i use it as my daily driver.
                     </p>
 
                     <p class="mt-6 sm:mt-8 md:mt-10">Feel free to
